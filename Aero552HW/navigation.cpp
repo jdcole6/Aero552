@@ -14,7 +14,25 @@
 
 void fly(double latA, double longA, double latB, double longB) {
 
-	double a = sin((latB - latA)/2)^2 + cos(latA)*cos(latB)*sin((longB - longA)/2)^2;
+	if (latA < -90 || latA > 90) {
+		printf("Latitude 1 is outside of bounds.");
+	}
+	if (latB < -90 || latB > 90) {
+		printf("Latitude 2 is outside of bounds.");
+	}
+	if (longA <= -180 || longA > 180) {
+		printf("Longitude 1 is outside of bounds.");
+	}
+	if (longB <= -180 || longB > 180) {
+		printf("Longitude 2 is outside of bounds.");
+	}
+
+	latA = latA*(M_PI/180);
+	latB = latB*(M_PI/180);
+	longA = longA*(M_PI/180);
+	longB = longB*(M_PI/180);
+
+	double a = pow(sin((latB - latA)/2),2) + cos(latA)*cos(latB)*pow(sin((longB - longA)/2),2);
 
 	double d = 2*R*atan2(sqrt(a), sqrt(1 - a));
 
