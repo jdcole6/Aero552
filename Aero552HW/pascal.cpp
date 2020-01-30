@@ -18,6 +18,7 @@ void pascal(int *arr, int n) {
 
 	*(arr + k) = formula(n, k);
 	k++;
+	pascal(arr, n);
 }
 
 int formula(int n, int k) {
