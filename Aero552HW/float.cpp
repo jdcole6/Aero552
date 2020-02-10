@@ -9,6 +9,9 @@
 
 float signBit(int fourBytes) {
 
+	return 1;
+
+	return -1;
 }
 
 float exponent(int fourBytes) {
